@@ -29,36 +29,34 @@ const Home: React.FC<HomeProps> = ({ setUseTestAadhaar, useTestAadhaar }) => {
 
     return (
     <>
-        <div>
-            <main>
-                <h1 className="font-bold text-2xl">Welcome to Anon Aadhaar Example</h1>
-                <p>Prove your Identity anonymously using your Aadhaar card.</p>
-                <LogInWithAnonAadhaar nullifierSeed={1234} useTestAadhaar={true} />
-                <ConnectButton
-								client={client}
-								appMetadata={{
-									name: "Example app",
-									url: "https://example.com",
-								}}
-							/>
-                {useTestAadhaar ? (
-                    <p>
-                        You&apos;re using the <strong>test</strong> Aadhaar mode
-                    </p>
-                ) : (
-                    <p>
-                        You&apos;re using the <strong>real</strong> Aadhaar mode
-                    </p>
-                )}
-                <button
-                    onClick={switchAadhaar}
-                    type="button"
-                    className="rounded bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                >
-                    Switch to {useTestAadhaar ? "real" : "test"} Aadhaar mode
-                </button>
+    
+        <div className="min-h-screen p-10">
+            <h1 className="font-bold text-8xl text-center">ANON AADHAR TEST DAPP</h1>
+            <main className="flex flex-col items-center gap-5 rounded-2xl max-w-screen-sm mx-auto h-[24rem] md:h-[20rem] p-5 ">
+                <p className="text-2xl">Connect to your wallet to continue.</p>
+                <ConnectButton client={client}/>
+                            <div className=" flex flex-col p-8 items-center gap-4 rounded-2xl max-w-screen-sm mx-auto p-8isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5">
+                            <p className="text-xl text-center">Prove your Identity anonymously using the QR code provided in your Aadhaar card.</p>
+                                <LogInWithAnonAadhaar nullifierSeed={3781272921220718937145119622546314716516} useTestAadhaar={true} />
+                                                {useTestAadhaar ? (
+                                                    <p>
+                                                        You&apos;re using the <strong>test</strong> Aadhaar mode
+                                                    </p>
+                                                ) : (
+                                                    <p>
+                                                        You&apos;re using the <strong>real</strong> Aadhaar mode
+                                                    </p>
+                                                )}
+                                                <button
+                                                    onClick={switchAadhaar}
+                                                    type="button"
+                                                    className="border-solid border-2 border-black-500 rounded-xl bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                                >
+                                                    Switch to {useTestAadhaar ? "real" : "test"} Aadhaar mode
+                                                </button>
+                </div>
             </main>
-            <div className="flex flex-col items-center gap-4 rounded-2xl max-w-screen-sm mx-auto p-8">
+            <div className="text-2xl flex flex-col items-center gap-4 rounded-2xl max-w-screen-sm mx-auto p-8">
                 {anonAadhaar.status === "logged-in" && (
                     <>
                         <p>✅ Proof is valid</p>

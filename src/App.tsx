@@ -15,6 +15,8 @@ const App: React.FC = () => {
 		useTestAadhaar={useTestAadhaar}
 		appName="Anon Aadhaar"
 	>
+		<div className="bg-fixed bg-center h-screen bg-custom-bg fixed h-full w-full">
+		
 			<main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
 				<div className="py-20">
 					<div className="flex justify-center mb-20">
@@ -25,7 +27,7 @@ const App: React.FC = () => {
 						) : null}
 					</div>
 				</div>
-			</main></AnonAadhaarProvider>
+			</main></div></AnonAadhaarProvider>
 		</>
 	);
 }
